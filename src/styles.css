@@ -22,12 +22,19 @@ body {
   margin-left: 10px;
 }
 .currentButton,
-.searchButtom {
+.searchButtom,
+.gethubButton {
   border-width: 1px;
   border-radius: 4px;
   
 }
-.headCity {
+.gethubButton {
+    display: block;
+    margin: 20px auto;
+    padding: 0px 20px;
+    
+  }
+ .headCity {
   font-size: 25px;
   font-weight: bold;
   margin-left: 100px;
