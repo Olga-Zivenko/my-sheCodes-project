@@ -1,0 +1,81 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    />
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    		<script src="https://kit.fontawesome.com/f5a32332d8.js" crossorigin="anonymous"></script>
+        <title>Weather</title>
+      </head>
+  </head>
+  <body>
+    
+  <div class="weatherApp">
+<form class =search-form>
+  <div class="row"> 
+    <div class="col-5">
+  <input class="currentcity" id="currentcity" type="search" placeholder="Enter a city" />
+      </div>
+  <div class="col-2">
+  <input    class= "searchButtom w-100" id="SearchButtom"
+    type="submit"
+    value="Search"  />
+    </div>
+    <div class="col-2">
+    <button class="currentButton w-100" id="currentButton">
+  Current
+  </button>
+  </div>
+  </div>
+</form>
+	<div class="headCity"></div>
+  <div class="data" id="data"></div>
+  <div class="row">
+	      <div class="col mb-2" style="font-size: 30px; text-align: center">
+        ☁️ 
+        <span class="float-left">
+          <span class="temperature" id="temperature"></span>
+          <span class="units">
+						<a href="#" id="celcius-link">°C </a>
+					  </span>
+        </span>
+      </div>
+
+				<div class="col card-subtitle mb-2 ">
+  			<span id="description"></span> <br />
+  			Humidity: <span id="humidity"></span> % <br />
+				Wind: <span id="wind"></span>  m/s
+				</div>
+</div>
+<hr>
+<div class="row" id="weatherCards">
+  <div class="col">
+    <h5 class="card-title">Monday</h5>
+    <p class="card-text">☀️ <br /> 23°</p>
+  </div>
+<div class="col">
+       <h5 class="card-title">Tuesday</h5>
+        <p class="card-text">🌤️<br />18°</p>
+</div>
+<div class="col">
+	    <h5 class="card-title">Wensday</h5>
+      <p class="card-text">🌧️ <br />15°</p>
+  </div>
+<div class="col">
+  <h5 class="card-title">Thusday</h5>
+  <p class="card-text">🌤️ <br /> 18°</p>
+  </div>
+<div class="col">
+    <h5 class="card-title">Friday</h5>
+    <p class="card-text">☀️ <br /> 24°</p>
+  </div>
+  </div>
+  <script src="src/index.js"></script>
+  </body>
+
+</html>
