@@ -1,13 +1,16 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-.weatherApp {
-  margin: 0 auto;
-  margin-top: 10px;
+.weatherApp-wrapper {
   max-width: 600px;
-  padding: 0px 0px;
+  margin: 30px auto;
+}
+
+.weatherApp {
+  margin-top: 10px;
+  padding: 20px 0px;
   border: 1px solid rgba(167, 220, 225, 0.5);
-  border-radius: 1%;
+  border-radius: 5px;
   background: linear-gradient(
     108.1deg,
     rgb(167, 220, 225) 11.2%,
@@ -15,42 +18,55 @@ body {
   );
 }
 .search-form {
-  margin: 20px 20px 20px 20px;
+  margin: 10px 30px 30px 30px;
   padding: 0px 0px;
+  
 }
 .search-buttom {
   margin-left: 10px;
 }
 .currentButton,
-.searchButtom,
-.gethubButton {
+.searchButtom
+ {
   border-width: 1px;
   border-radius: 4px;
-  
+  background-color:white;
 }
-.gethubButton {
-    display: block;
-    margin: 20px auto;
-    padding: 0px 20px;
-    
+.overview {
+  margin: 10px 30px;
+}
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+  li:first-letter {
+    text-transform: capitalize;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
   }
  .headCity {
   font-size: 25px;
   font-weight: bold;
-  margin-left: 100px;
-}
+ }
+ .sky{
+  margin: 0 30px;
+  font-size:35px;
+  font-weight: bold;
+ }
 .card-text {
   font-size: 20px;
 }
-
 #weatherCards {
   margin: 20px 0px 15px 0px;
   text-align: center;
 }
-.data {
-  margin-left: 100px;
-}
 
+small{
+  margin: 30px;
+}
 .units {
   font-size: 14;
   position: relative;
