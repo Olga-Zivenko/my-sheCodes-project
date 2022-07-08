@@ -29,6 +29,7 @@ function showWeather(response) {
     document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("div.headCity");
   cityElement.innerHTML = response.data.name;
+  celsiustemperature = Math.round(response.data.main.temp);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML =response.data.weather[0].main;
@@ -66,3 +67,28 @@ function newGeoTemp(event) {
 }
 let newgeo = document.querySelector("#currentButton");
 newgeo.addEventListener("click", newGeoTemp);
+
+function showcelsiusTemp(event){
+  event.preventDefault();
+  contactC.classList.add("active");
+  contactF.classList.remove("active");
+  let currentTemperatureC =document.querySelector("#temperature");
+currentTemperatureC.innerHTML = Math.round(celsiustemperature);
+}
+
+function showFarTemp(event){
+  event.preventDefault();
+  contactC.classList.remove("active");
+  contactF.classList.add("active");
+  let currentTemperatureF =document.querySelector("#temperature");
+ currentTemperatureF.innerHTML = Math.round((celsiustemperature*9)/5+32);
+}
+
+let celsiustemperature=null;
+
+
+let contactC=document.querySelector("#celcius-link");
+contactC.addEventListener("click",showcelsiusTemp);
+
+let contactF =document.querySelector("#fahrenheit-link");
+contactF.addEventListener("click",showFarTemp);

@@ -60,6 +60,13 @@ li {
   height: 64px;
   width: 64px;
  }
+ .units .active {
+  color:black;
+  cursor: default;
+}
+.units .active:hover {
+  text-decoration: none;
+}
 .card-text {
   font-size: 20px;
 }
@@ -69,10 +76,6 @@ hr {
 #weatherCards {
   margin: 20px 0px 15px 0px;
   text-align: center;
-}
-
-small{
-  margin: 20px;
 }
 .units {
   font-size: 14;
