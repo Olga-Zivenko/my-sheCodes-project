@@ -27,7 +27,8 @@ DateChange.innerHTML = formatDate(nowDate);
 
 function showWeather(response) {
     document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector("div.headCity").innerHTML = response.data.name;
+  let cityElement = document.querySelector("div.headCity");
+  cityElement.innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML =response.data.weather[0].main;
@@ -38,19 +39,19 @@ function showWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-function showCurrentCity(event) {
-  event.preventDefault();
-  let typeCity = document.querySelector("#currentcity");
-  let city = typeCity.value;
-  let currentCity = document.querySelector("div.headCity");
-  currentCity.innerHTML = city;
-   let key = "2fe0053212ae691bfbd1ef61151dca30";
+function search(city) {
+  let key = "2fe0053212ae691bfbd1ef61151dca30";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
    axios.get(url).then(showWeather);
+}
+function showCurrentCity(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#currentcity");
+  search(cityInput.value)
   }
 let newCity = document.querySelector("form");
 newCity.addEventListener("submit", showCurrentCity);
-//🙀 Bonus point weather for geolocation
+search ("Kyiv");
 
 function geoPosition(position) {
   let apiKey = "2fe0053212ae691bfbd1ef61151dca30";
@@ -63,6 +64,5 @@ function newGeoTemp(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(geoPosition);
 }
-
 let newgeo = document.querySelector("#currentButton");
 newgeo.addEventListener("click", newGeoTemp);
