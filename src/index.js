@@ -38,6 +38,10 @@ function showCurrentCity(event) {
   let city = typeCity.value;
   let currentCity = document.querySelector("div.headCity");
   currentCity.innerHTML = city;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
   let key = "2fe0053212ae691bfbd1ef61151dca30";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
    axios.get(url).then(showWeather);
