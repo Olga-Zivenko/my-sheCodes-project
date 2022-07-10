@@ -25,6 +25,30 @@ function formatDate() {
 let DateChange = document.querySelector("#data");
 DateChange.innerHTML = formatDate(nowDate);
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weatherCards");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+    days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2">
+    <h5 class="card-title">${day}</h5>
+    <img
+    src="http://openweathermap.org/img/wn/50d@2x.png"
+    alt=""
+    width="42" />
+    <div class="card-temperature">
+      <span class="card-temperature-max">18°</span>
+      <span class="card-temperature-min">8°</span>
+    </div>
+  </div>
+  `;
+});
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
     document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("div.headCity");
@@ -53,6 +77,7 @@ function showCurrentCity(event) {
 let newCity = document.querySelector("form");
 newCity.addEventListener("submit", showCurrentCity);
 search ("Kyiv");
+displayForecast();
 
 function geoPosition(position) {
   let apiKey = "2fe0053212ae691bfbd1ef61151dca30";
