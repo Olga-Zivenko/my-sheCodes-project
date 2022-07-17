@@ -60,13 +60,7 @@ li {
   height: 64px;
   width: 64px;
  }
- .units .active {
-  color:black;
-  cursor: default;
-}
-.units .active:hover {
-  text-decoration: none;
-}
+
 .card-text {
   font-size: 20px;
 }
@@ -78,12 +72,6 @@ hr {
   font-size: 14;
   position: relative;
   top: -13px;
-}
-#celcius-link,
-#fahrenheit-link {
-  font-size: 14;
-  text-decoration: none;
-  font-weight: bold;
 }
 #weatherCards {
   margin: 20px 0px 15px 0px;
