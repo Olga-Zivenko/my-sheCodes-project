@@ -25,7 +25,8 @@ function formatDate() {
 let DateChange = document.querySelector("#data");
 DateChange.innerHTML = formatDate(nowDate);
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#weatherCards");
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun"];
@@ -49,6 +50,15 @@ forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates)
+  let apiKey = "2fe0053212ae691bfbd1ef61151dca30";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+let celsiustemperature=null;
+
 function showWeather(response) {
     document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("div.headCity");
@@ -63,6 +73,7 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 function search(city) {
   let key = "2fe0053212ae691bfbd1ef61151dca30";
@@ -77,7 +88,6 @@ function showCurrentCity(event) {
 let newCity = document.querySelector("form");
 newCity.addEventListener("submit", showCurrentCity);
 search ("Kyiv");
-displayForecast();
 
 function geoPosition(position) {
   let apiKey = "2fe0053212ae691bfbd1ef61151dca30";
@@ -109,7 +119,6 @@ function showFarTemp(event){
  currentTemperatureF.innerHTML = Math.round((celsiustemperature*9)/5+32);
 }
 
-let celsiustemperature=null;
 
 
 let contactC=document.querySelector("#celcius-link");
